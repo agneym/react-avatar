@@ -2,8 +2,8 @@ import { useRef, useState, useEffect } from "react";
 
 interface IArg {
   src: string;
-  onLoad: (event: Event) => void;
-  onError: (event: string | Event) => void;
+  onLoad?: (event: Event) => void;
+  onError?: (event: string | Event) => void;
 }
 
 /**
