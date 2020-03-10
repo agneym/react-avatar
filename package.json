@@ -51,6 +51,7 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
-    "goober": "^1.7.1"
+    "goober": "^1.7.1",
+    "polished": "^3.4.4"
   }
 }

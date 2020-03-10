@@ -1,10 +1,10 @@
-import React, { createElement, FC } from "react";
+import React, { createElement, FC, Fragment } from "react";
 import { setPragma, styled } from "goober";
-import useHasImageLoaded from 'useHasImageLoaded';
+import useHasImageLoaded from './useHasImageLoaded';
 
 setPragma(createElement);
 
-const AvatarWrapper = styled("div")`
+const AvatarWrapper = styled<{ htmlWidth: string, htmlHeight: string, bgColor?: string, className: string }>("div")`
   border-radius: 50%;
   max-width: ${props => props.htmlWidth};
   min-width: ${props => props.htmlWidth};
@@ -17,45 +17,69 @@ const AvatarWrapper = styled("div")`
   color: #ffffff;
 `;
 
-const Text = styled("p")`
-  margin: 0;
-  vertical-align: middle;
-`;
+// const Text = styled("p")`
+//   margin: 0;
+//   vertical-align: middle;
+// `;
 
-/**
- * Get sum representing all characters in text.
- * @param text
- */
-const sumOfCharacters = (text: string) => {
-  let sum = 0;
-  for (let i = 0; i < text.length; i += 1) {
-    sum += text.charCodeAt(i);
-  }
-  return sum;
-};
+// /**
+//  * Get sum representing all characters in text.
+//  * @param text
+//  */
+// const sumOfCharacters = (text: string) => {
+//   let sum = 0;
+//   for (let i = 0; i < text.length; i += 1) {
+//     sum += text.charCodeAt(i);
+//   }
+//   return sum;
+// };
 
 type IShape = "circle" | "square";
 
 interface IProps {
-  src: string;
-  text: string;
-  shape: IShape;
+  src?: string;
+  text?: string;
+  shape?: IShape;
   htmlWidth: string;
-  htmlString: string;
+  htmlHeight?: string;
+  bgColor?: string;
+  imgAlt?: string;
+  className?: string;
 }
 
 const Avatar: FC<IProps> = ({
-  src,
+  src = '',
   shape = "circle",
   text = "",
   htmlWidth = "100%",
-  htmlHeight = "auto",
+  htmlHeight,
+  bgColor,
+  imgAlt = '',
+  className = '',
 }) => {
   const hasLoaded = useHasImageLoaded({
     src,
   });
+  const height = htmlHeight || htmlWidth;
   return (
-    <p>Avatar</p>
+    <Fragment>
+      {hasLoaded ? (
+        <AvatarWrapper
+          htmlWidth={htmlWidth}
+          htmlHeight={height}
+          className={className}
+        >
+          <img
+            src={src}
+            alt={imgAlt}
+            width={htmlWidth}
+            height={height}
+          />
+        </AvatarWrapper>
+      ) : (
+        <p>Thing</p>
+      )}
+    </Fragment>
   );
 }
 

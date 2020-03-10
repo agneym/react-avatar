@@ -6,7 +6,7 @@ import { Avatar } from '../.';
 const App = () => {
   return (
     <div>
-      <Avatar />
+      <Avatar src='https://gravatar.com/avatar/eabdeb636ae18d3278648438aecd54f0?s=400&d=robohash&r=x' htmlWidth='60px' />
     </div>
   );
 };
