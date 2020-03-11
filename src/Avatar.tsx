@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import useHasImageLoaded from './useHasImageLoaded';
@@ -23,9 +23,11 @@ const AvatarWrapper = styled('div')<{
   color: #ffffff;
 `;
 
-const Text = styled('p')`
+const Text = styled('p')<{ scale: number }>`
   margin: 0;
   vertical-align: middle;
+  white-space: nowrap;
+  transform: scale(${props => props.scale});
 `;
 
 const defaultBackgrounds = [
@@ -56,6 +58,7 @@ const TextAvatar: FC<{
   text: string;
   bgColor?: string;
 }> = ({ htmlWidth, htmlHeight, className, shape, text, bgColor }) => {
+
   const backgroundColor = (() => {
     if (bgColor) {
       return bgColor;
@@ -63,6 +66,26 @@ const TextAvatar: FC<{
     const index = sumOfCharacters(text) % defaultBackgrounds.length;
     return defaultBackgrounds[index];
   })();
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const [scale, setScale] = useState<number>(1);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const text = textRef.current;
+    if(!container || !text) {
+      return;
+    }
+    const containerWidth = container.offsetWidth;
+    const textWidth = text.offsetWidth;
+    if(containerWidth - 8 < textWidth) {
+      setScale(((containerWidth - 8) / textWidth));
+    } else {
+      setScale(1);
+    }
+  }, [text, htmlWidth, htmlHeight]);
+
   return (
     <AvatarWrapper
       htmlWidth={htmlWidth}
@@ -70,8 +93,9 @@ const TextAvatar: FC<{
       className={className}
       shape={shape}
       bgColor={backgroundColor}
+      ref={containerRef}
     >
-      <Text>{text}</Text>
+      <Text ref={textRef} scale={scale}>{text}</Text>
     </AvatarWrapper>
   );
 };
