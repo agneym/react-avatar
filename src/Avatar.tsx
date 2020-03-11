@@ -1,12 +1,17 @@
-import React, { FC, Fragment } from "react";
-import styled from "styled-components";
+import React, { FC, Fragment } from 'react';
+import styled from 'styled-components';
 
 import useHasImageLoaded from './useHasImageLoaded';
 
-type IShape = "circle" | "square";
+type IShape = 'circle' | 'square';
 
-const AvatarWrapper = styled("div")<{ htmlWidth: string, htmlHeight: string, bgColor?: string, shape: IShape }>`
-  border-radius: ${props => props.shape === "square" ? 0: '50%'};
+const AvatarWrapper = styled('div')<{
+  htmlWidth: string;
+  htmlHeight: string;
+  bgColor?: string;
+  shape: IShape;
+}>`
+  border-radius: ${props => (props.shape === 'square' ? 0 : '50%')};
   max-width: ${props => props.htmlWidth};
   min-width: ${props => props.htmlWidth};
   height: ${props => props.htmlHeight};
@@ -48,9 +53,9 @@ interface IProps {
 
 const Avatar: FC<IProps> = ({
   src = '',
-  shape = "circle",
-  text = "",
-  htmlWidth = "100%",
+  shape = 'circle',
+  text = '',
+  htmlWidth = '100%',
   htmlHeight,
   bgColor,
   imgAlt = '',
@@ -69,18 +74,13 @@ const Avatar: FC<IProps> = ({
           className={className}
           shape={shape}
         >
-          <img
-            src={src}
-            alt={imgAlt}
-            width={htmlWidth}
-            height={height}
-          />
+          <img src={src} alt={imgAlt} width={htmlWidth} height={height} />
         </AvatarWrapper>
       ) : (
         <p>Thing</p>
       )}
     </Fragment>
   );
-}
+};
 
 export default Avatar;
