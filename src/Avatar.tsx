@@ -11,6 +11,7 @@ const AvatarWrapper = styled('div')<{
   htmlHeight: string;
   bgColor: string;
   shape: IShape;
+  textColor?: string;
 }>`
   border-radius: ${props => (props.shape === 'square' ? 0 : '50%')};
   max-width: ${props => props.htmlWidth};
@@ -21,7 +22,7 @@ const AvatarWrapper = styled('div')<{
   align-items: center;
   justify-content: center;
   background-color: ${props => props.bgColor};
-  color: ${props => readableColor(props.bgColor)};
+  color: ${props => props.textColor || readableColor(props.bgColor)};
 `;
 
 const Text = styled('p')<{ scale: number }>`
@@ -59,7 +60,16 @@ const TextAvatar: FC<{
   shape: IShape;
   text: string;
   bgColor?: string;
-}> = ({ htmlWidth, htmlHeight, className, shape, text, bgColor }) => {
+  textColor?: string;
+}> = ({
+  htmlWidth,
+  htmlHeight,
+  className,
+  shape,
+  text,
+  bgColor,
+  textColor,
+}) => {
   const backgroundColor = (() => {
     if (bgColor) {
       return bgColor;
@@ -94,6 +104,7 @@ const TextAvatar: FC<{
       className={className}
       shape={shape}
       bgColor={backgroundColor}
+      textColor={textColor}
       ref={containerRef}
     >
       <Text ref={textRef} scale={scale}>
@@ -131,6 +142,7 @@ interface IProps {
   htmlWidth: string;
   htmlHeight?: string;
   bgColor?: string;
+  textColor?: string;
   imgAlt?: string;
   className?: string;
 }
@@ -142,6 +154,7 @@ const Avatar: FC<IProps> = ({
   htmlWidth = '100%',
   htmlHeight,
   bgColor,
+  textColor,
   imgAlt = '',
   className = '',
 }) => {
@@ -168,6 +181,7 @@ const Avatar: FC<IProps> = ({
           className={className}
           shape={shape}
           bgColor={bgColor}
+          textColor={textColor}
         />
       )}
     </Fragment>
