@@ -1,5 +1,6 @@
 import React, { FC, Fragment, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { readableColor } from 'polished';
 
 import useHasImageLoaded from './useHasImageLoaded';
 
@@ -8,7 +9,7 @@ type IShape = 'circle' | 'square';
 const AvatarWrapper = styled('div')<{
   htmlWidth: string;
   htmlHeight: string;
-  bgColor?: string;
+  bgColor: string;
   shape: IShape;
 }>`
   border-radius: ${props => (props.shape === 'square' ? 0 : '50%')};
@@ -20,13 +21,14 @@ const AvatarWrapper = styled('div')<{
   align-items: center;
   justify-content: center;
   background-color: ${props => props.bgColor};
-  color: #ffffff;
+  color: ${props => readableColor(props.bgColor)};
 `;
 
 const Text = styled('p')<{ scale: number }>`
   margin: 0;
   vertical-align: middle;
   white-space: nowrap;
+  text-transform: uppercase;
   transform: scale(${props => props.scale});
 `;
 
@@ -58,7 +60,6 @@ const TextAvatar: FC<{
   text: string;
   bgColor?: string;
 }> = ({ htmlWidth, htmlHeight, className, shape, text, bgColor }) => {
-
   const backgroundColor = (() => {
     if (bgColor) {
       return bgColor;
@@ -74,13 +75,13 @@ const TextAvatar: FC<{
   useEffect(() => {
     const container = containerRef.current;
     const text = textRef.current;
-    if(!container || !text) {
+    if (!container || !text) {
       return;
     }
     const containerWidth = container.offsetWidth;
     const textWidth = text.offsetWidth;
-    if(containerWidth - 8 < textWidth) {
-      setScale(((containerWidth - 8) / textWidth));
+    if (containerWidth - 8 < textWidth) {
+      setScale((containerWidth - 8) / textWidth);
     } else {
       setScale(1);
     }
@@ -95,7 +96,9 @@ const TextAvatar: FC<{
       bgColor={backgroundColor}
       ref={containerRef}
     >
-      <Text ref={textRef} scale={scale}>{text}</Text>
+      <Text ref={textRef} scale={scale}>
+        {text}
+      </Text>
     </AvatarWrapper>
   );
 };
@@ -114,6 +117,7 @@ const ImageAvatar: FC<{
       htmlHeight={htmlHeight}
       className={className}
       shape={shape}
+      bgColor="transparent"
     >
       <img src={src} alt={imgAlt} width={htmlWidth} height={htmlHeight} />
     </AvatarWrapper>

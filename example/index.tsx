@@ -11,7 +11,7 @@ const App = () => {
         htmlWidth='150px'
       />
       <Avatar
-        text='Lucy King of Philadelphia'
+        text='Lucy King'
         htmlWidth='150px'
       />
     </div>
