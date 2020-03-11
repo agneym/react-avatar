@@ -1,11 +1,12 @@
-import React, { createElement, FC, Fragment } from "react";
-import { setPragma, styled } from "goober";
+import React, { FC, Fragment } from "react";
+import styled from "styled-components";
+
 import useHasImageLoaded from './useHasImageLoaded';
 
-setPragma(createElement);
+type IShape = "circle" | "square";
 
-const AvatarWrapper = styled<{ htmlWidth: string, htmlHeight: string, bgColor?: string, className: string }>("div")`
-  border-radius: 50%;
+const AvatarWrapper = styled("div")<{ htmlWidth: string, htmlHeight: string, bgColor?: string, shape: IShape }>`
+  border-radius: ${props => props.shape === "square" ? 0: '50%'};
   max-width: ${props => props.htmlWidth};
   min-width: ${props => props.htmlWidth};
   height: ${props => props.htmlHeight};
@@ -33,8 +34,6 @@ const AvatarWrapper = styled<{ htmlWidth: string, htmlHeight: string, bgColor?: 
 //   }
 //   return sum;
 // };
-
-type IShape = "circle" | "square";
 
 interface IProps {
   src?: string;
@@ -68,6 +67,7 @@ const Avatar: FC<IProps> = ({
           htmlWidth={htmlWidth}
           htmlHeight={height}
           className={className}
+          shape={shape}
         >
           <img
             src={src}
