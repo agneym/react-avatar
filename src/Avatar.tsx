@@ -51,6 +51,28 @@ interface IProps {
   className?: string;
 }
 
+const TextAvatar = () => {};
+
+const ImageAvatar: FC<{
+  htmlWidth: string;
+  htmlHeight: string;
+  className: string;
+  shape: IShape;
+  imgAlt: string;
+  src: string;
+}> = ({ htmlWidth, htmlHeight, className, shape, imgAlt, src }) => {
+  return (
+    <AvatarWrapper
+      htmlWidth={htmlWidth}
+      htmlHeight={htmlHeight}
+      className={className}
+      shape={shape}
+    >
+      <img src={src} alt={imgAlt} width={htmlWidth} height={htmlHeight} />
+    </AvatarWrapper>
+  );
+};
+
 const Avatar: FC<IProps> = ({
   src = '',
   shape = 'circle',
@@ -68,14 +90,14 @@ const Avatar: FC<IProps> = ({
   return (
     <Fragment>
       {hasLoaded ? (
-        <AvatarWrapper
+        <ImageAvatar
+          src={src}
+          imgAlt={imgAlt}
           htmlWidth={htmlWidth}
           htmlHeight={height}
           className={className}
           shape={shape}
-        >
-          <img src={src} alt={imgAlt} width={htmlWidth} height={height} />
-        </AvatarWrapper>
+        />
       ) : (
         <p>Thing</p>
       )}
