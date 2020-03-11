@@ -23,35 +23,58 @@ const AvatarWrapper = styled('div')<{
   color: #ffffff;
 `;
 
-// const Text = styled("p")`
-//   margin: 0;
-//   vertical-align: middle;
-// `;
+const Text = styled('p')`
+  margin: 0;
+  vertical-align: middle;
+`;
 
-// /**
-//  * Get sum representing all characters in text.
-//  * @param text
-//  */
-// const sumOfCharacters = (text: string) => {
-//   let sum = 0;
-//   for (let i = 0; i < text.length; i += 1) {
-//     sum += text.charCodeAt(i);
-//   }
-//   return sum;
-// };
+const defaultBackgrounds = [
+  '#3c40c6',
+  '#ffa801',
+  '#485460',
+  '#0be881',
+  '#f53b57',
+];
 
-interface IProps {
-  src?: string;
-  text?: string;
-  shape?: IShape;
+/**
+ * Get sum representing all characters in text.
+ * @param text
+ */
+const sumOfCharacters = (text: string) => {
+  let sum = 0;
+  for (let i = 0; i < text.length; i += 1) {
+    sum += text.charCodeAt(i);
+  }
+  return sum;
+};
+
+const TextAvatar: FC<{
   htmlWidth: string;
-  htmlHeight?: string;
+  htmlHeight: string;
+  className: string;
+  shape: IShape;
+  text: string;
   bgColor?: string;
-  imgAlt?: string;
-  className?: string;
-}
-
-const TextAvatar = () => {};
+}> = ({ htmlWidth, htmlHeight, className, shape, text, bgColor }) => {
+  const backgroundColor = (() => {
+    if (bgColor) {
+      return bgColor;
+    }
+    const index = sumOfCharacters(text) % defaultBackgrounds.length;
+    return defaultBackgrounds[index];
+  })();
+  return (
+    <AvatarWrapper
+      htmlWidth={htmlWidth}
+      htmlHeight={htmlHeight}
+      className={className}
+      shape={shape}
+      bgColor={backgroundColor}
+    >
+      <Text>{text}</Text>
+    </AvatarWrapper>
+  );
+};
 
 const ImageAvatar: FC<{
   htmlWidth: string;
@@ -72,6 +95,17 @@ const ImageAvatar: FC<{
     </AvatarWrapper>
   );
 };
+
+interface IProps {
+  src?: string;
+  text?: string;
+  shape?: IShape;
+  htmlWidth: string;
+  htmlHeight?: string;
+  bgColor?: string;
+  imgAlt?: string;
+  className?: string;
+}
 
 const Avatar: FC<IProps> = ({
   src = '',
@@ -99,7 +133,14 @@ const Avatar: FC<IProps> = ({
           shape={shape}
         />
       ) : (
-        <p>Thing</p>
+        <TextAvatar
+          text={text}
+          htmlWidth={htmlWidth}
+          htmlHeight={height}
+          className={className}
+          shape={shape}
+          bgColor={bgColor}
+        />
       )}
     </Fragment>
   );
