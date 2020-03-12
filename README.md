@@ -1,7 +1,5 @@
 # React Avatar
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 <p>
   <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/v/@agney/react-avatar">
@@ -12,7 +10,20 @@
   <a href="https://github.com/agneym/react-avatar/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/agneym/react-avatar" />
   </a>
+  <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/npm/types/scrub-js.svg" />
+  </a>
+  <a href="https://prettier.io">
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" />
+  </a>
+  <a href="http://makeapullrequest.com">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
+  </a>
 </p>
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Create Image Avatars with text based fallbacks. 
 
