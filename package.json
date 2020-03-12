@@ -1,6 +1,9 @@
 {
+  "name": "@agney/react-avatar",
   "version": "0.1.0",
   "license": "MIT",
+  "private": false,
+  "description": "Create Image Avatars with text based fallbacks.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -30,7 +33,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "uk-react",
   "author": "Agney Menon <agney@outlook.in>",
   "module": "dist/uk-react.esm.js",
   "devDependencies": {
