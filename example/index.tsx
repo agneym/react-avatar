@@ -14,6 +14,17 @@ const App = () => {
         text='Lucy King'
         htmlWidth='150px'
       />
+      <Avatar
+        shape="square"
+        text='Lucy King'
+        htmlWidth='150px'
+        textColor='#fff'
+      />
+      <Avatar
+        src='https://gravar.com/avatar/eabdeb636ae18d3278648438aecd54f0?s=400&d=robohash&r=x'
+        htmlWidth='150px'
+        text="Fallback"
+      />
     </div>
   );
 };

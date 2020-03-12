@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useRef, useEffect, useState } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
 
@@ -28,6 +28,7 @@ const AvatarWrapper = styled('div')<{
 const Text = styled('p')<{ scale: number }>`
   margin: 0;
   vertical-align: middle;
+  font-weight: bold;
   white-space: nowrap;
   text-transform: uppercase;
   transform: scale(${props => props.scale});
@@ -162,29 +163,25 @@ const Avatar: FC<IProps> = ({
     src,
   });
   const height = htmlHeight || htmlWidth;
-  return (
-    <Fragment>
-      {hasLoaded ? (
-        <ImageAvatar
-          src={src}
-          imgAlt={imgAlt}
-          htmlWidth={htmlWidth}
-          htmlHeight={height}
-          className={className}
-          shape={shape}
-        />
-      ) : (
-        <TextAvatar
-          text={text}
-          htmlWidth={htmlWidth}
-          htmlHeight={height}
-          className={className}
-          shape={shape}
-          bgColor={bgColor}
-          textColor={textColor}
-        />
-      )}
-    </Fragment>
+  return hasLoaded ? (
+    <ImageAvatar
+      src={src}
+      imgAlt={imgAlt}
+      htmlWidth={htmlWidth}
+      htmlHeight={height}
+      className={className}
+      shape={shape}
+    />
+  ) : (
+    <TextAvatar
+      text={text}
+      htmlWidth={htmlWidth}
+      htmlHeight={height}
+      className={className}
+      shape={shape}
+      bgColor={bgColor}
+      textColor={textColor}
+    />
   );
 };
 
