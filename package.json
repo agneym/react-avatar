@@ -34,7 +34,7 @@
     "trailingComma": "es5"
   },
   "author": "Agney Menon <agney@outlook.in>",
-  "module": "dist/uk-react.esm.js",
+  "module": "dist/react-avatar.esm.js",
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@storybook/addon-actions": "^5.3.14",
