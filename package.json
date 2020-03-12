@@ -29,7 +29,7 @@
     "release": "np"
   },
   "peerDependencies": {
-    "react": ">=16",
+    "react": ">=16.8",
     "styled-components": ">=4"
   },
   "husky": {
