@@ -1,4 +1,4 @@
-<h1 align="center">React Avatar</h1>
+# React Avatar
 <p>
   <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/v/@agney/react-avatar">
@@ -28,8 +28,20 @@ Requires React v16.8 or above and Styled Components v4 or above.
 
 ## Usage
 
-```sh
-npm start
+```javascript
+import React from "react";
+import { Avatar } from "@agney/react-avatar";
+
+const App = () => {
+  return (
+    <Avatar
+      src="https://gravatar.com/avatar/7c4ff521986b4ff8d29440beec01972d?s=400&d=robohash&r=x"
+      text="CM"
+    />
+  );
+}
+
+export default App;
 ```
 
 ## 🤝 Contributing
