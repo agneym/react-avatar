@@ -11,7 +11,9 @@
   </a>
 </p>
 
-> Create Image Avatars with text based fallbacks.
+Create Image Avatars with text based fallbacks. 
+
+[Demo Storybook](https://agneym.github.io/react-avatar/?path=/docs/)
 
 # Features ✨
 
