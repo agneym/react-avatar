@@ -55,22 +55,24 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ### Development
 
+We use [`yarn` v1](https://classic.yarnpkg.com/) for development. 
+
 ```sh
-npm i
-npm start
+yarn i
+yarn start
 
 # To run example
 cd example
-npm start
+yarn start
 
 # Running storybook
-npm run storybook
+yarn run storybook
 ```
 
 ### Run tests
 
 ```sh
-npm test
+yarn test
 ```
 
 ## Show your support

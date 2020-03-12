@@ -26,7 +26,8 @@
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "release": "np"
+    "release": "np",
+    "postrelease": "yarn run build-storybook && gh-pages -d storybook-static"
   },
   "peerDependencies": {
     "react": ">=16.8",
