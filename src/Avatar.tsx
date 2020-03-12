@@ -14,6 +14,7 @@ const AvatarWrapper = styled('div')<{
   textColor?: string;
 }>`
   border-radius: ${props => (props.shape === 'square' ? 0 : '50%')};
+  overflow: hidden;
   max-width: ${props => props.htmlWidth};
   min-width: ${props => props.htmlWidth};
   height: ${props => props.htmlHeight};

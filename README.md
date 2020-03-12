@@ -13,6 +13,14 @@
 
 > Create Image Avatars with text based fallbacks.
 
+# Features ✨
+
+1. Ability to render image avatar or text avatar as circle or square.
+1. Ability to render text based fallbacks for images for the time they take to load or error.
+1. Renders text based avatars and backgrounds based on text passed in.
+1. Autoscales text if it doesn't fit the container width.
+1. Automatically determines readable text color depending on background.
+
 ## Install
 
 ```sh

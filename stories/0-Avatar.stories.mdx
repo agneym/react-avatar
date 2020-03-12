@@ -1,0 +1,128 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Avatar } from '..';
+
+<Meta title="Avatar" component={Avatar} />
+
+# React Avatar 
+
+Installation
+
+```sh
+npm i @agney/react-avatar
+```
+
+# Features ✨
+
+1. Ability to render image avatar or text avatar as circle or square.
+1. Ability to render text based fallbacks for images for the time they take to load or error.
+1. Renders text based avatars and backgrounds based on text passed in.
+1. Autoscales text if it doesn't fit the container width.
+1. Automatically determines readable text color depending on background.
+
+# Usage
+
+```javascript
+import React from "react";
+import { Avatar } from "@agney/react-avatar";
+
+const App = () => {
+  return (
+    <Avatar
+      src="https://gravatar.com/avatar/7c4ff521986b4ff8d29440beec01972d?s=400&d=robohash&r=x"
+      text="CM"
+    />
+  );
+}
+
+export default App;
+```
+
+## Image URL:
+
+Loads image specified in `src` prop.
+
+<Preview>
+  <Story name="Image URL">
+    <Avatar
+      src='https://www.w3schools.com/howto/img_avatar.png'
+      htmlWidth="100px"
+    />
+  </Story>
+</Preview>
+
+## Text Avatar
+
+Adds in text specified with `text` prop.
+
+<Preview>
+  <Story name="Text Avatar">
+    <Avatar
+      text='CJ'
+      htmlWidth="100px"
+    />
+  </Story>
+</Preview>
+
+## Image with Text Avatar as fallback.
+
+Shows text based avatar till image completes loading. If image load errors out, shows text based fallback.
+
+<Preview>
+  <Story name="Image Fallback">
+    <div style={{ display: 'flex' }}>
+      <Avatar
+        src='https://www.w3schools.com/howto/img_avatar.png'
+        text='BI'
+        htmlWidth="100px"
+      />
+      <Avatar
+        src='https://www.w3schools.com/howto/img_avatar.ng'
+        text='BI'
+        htmlWidth="100px"
+      />
+    </div>
+  </Story>
+</Preview>
+
+## Text Backgrounds
+
+Allows to choose from an array of backgrounds for text fallbacks.
+
+The backgrounds choosen are always consistent with the text that is passed in. So the same avatars will be generated on refresh.
+
+`react-avatar` call automatically detect your background color and determine a readable text color. You can also pass in a specific text color to disable this behavior.
+
+<Preview>
+  <Story name="Text Avatar 1">
+    <div style={{ display: 'flex' }}>
+      <Avatar
+      text='AI'
+      backgrounds={['#B90E05', '#3620BC', '#E2E2ED', '#A88282']}
+      htmlWidth="100px"
+      />
+      <Avatar
+        text='OV'
+        backgrounds={['#B90E05', '#3620BC', '#E2E2ED', '#A88282']}
+        htmlWidth="100px"
+      />
+      <Avatar
+        text='OP'
+        backgrounds={['#B90E05', '#3620BC', '#E2E2ED', '#A88282']}
+        htmlWidth="100px"
+      />
+    </div>
+  </Story>
+</Preview>
+
+## Text Autoscaling
+
+If you pass in more text than that fits in the width specified by your container, then `react-avatar` auto-scales making the text smaller to fit your content.
+
+<Preview>
+  <Story name="Text Scaling">
+    <Avatar
+      text='Lucy Heartfilia'
+      htmlWidth="100px"
+    />
+  </Story>
+</Preview>
