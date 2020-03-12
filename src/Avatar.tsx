@@ -125,7 +125,8 @@ const ImageAvatar: FC<{
   className: string;
   shape: IShape;
   src: string;
-}> = ({ htmlWidth, htmlHeight, className, shape, src }) => {
+  imageAlt: string;
+}> = ({ htmlWidth, htmlHeight, className, shape, src, imageAlt }) => {
   return (
     <AvatarWrapper
       htmlWidth={htmlWidth}
@@ -134,7 +135,7 @@ const ImageAvatar: FC<{
       shape={shape}
       bgColor="transparent"
     >
-      <Image src={src} alt="" width={htmlWidth} height={htmlHeight} />
+      <Image src={src} alt={imageAlt} width={htmlWidth} height={htmlHeight} />
     </AvatarWrapper>
   );
 };
@@ -152,6 +153,8 @@ interface IProps {
   htmlHeight?: string;
   /** background color for specific text fallback. */
   bgColor?: string;
+  /** Alternate text for image. Defaults to '' - decorative image */
+  imageAlt?: string;
   /** text color for fallback text. defaults to a readable dark or light color depending on background. */
   textColor?: string;
   /** classname to be passed into the top level component. */
@@ -164,6 +167,7 @@ interface IProps {
  */
 const Avatar: FC<IProps> = ({
   src = '',
+  imageAlt = '',
   shape = 'circle',
   text = '',
   htmlWidth = '100%',
@@ -179,6 +183,7 @@ const Avatar: FC<IProps> = ({
   return hasLoaded ? (
     <ImageAvatar
       src={src}
+      imageAlt={imageAlt}
       htmlWidth={htmlWidth}
       htmlHeight={height}
       className={className}
