@@ -34,6 +34,10 @@ const Text = styled('p')<{ scale: number }>`
   transform: scale(${props => props.scale});
 `;
 
+const Image = styled.img`
+  object-fit: cover;
+`;
+
 const defaultBackgrounds = [
   '#3c40c6',
   '#ffa801',
@@ -130,7 +134,7 @@ const ImageAvatar: FC<{
       shape={shape}
       bgColor="transparent"
     >
-      <img src={src} alt="" width={htmlWidth} height={htmlHeight} />
+      <Image src={src} alt="" width={htmlWidth} height={htmlHeight} />
     </AvatarWrapper>
   );
 };
