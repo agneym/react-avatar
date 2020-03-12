@@ -120,9 +120,8 @@ const ImageAvatar: FC<{
   htmlHeight: string;
   className: string;
   shape: IShape;
-  imgAlt: string;
   src: string;
-}> = ({ htmlWidth, htmlHeight, className, shape, imgAlt, src }) => {
+}> = ({ htmlWidth, htmlHeight, className, shape, src }) => {
   return (
     <AvatarWrapper
       htmlWidth={htmlWidth}
@@ -131,23 +130,34 @@ const ImageAvatar: FC<{
       shape={shape}
       bgColor="transparent"
     >
-      <img src={src} alt={imgAlt} width={htmlWidth} height={htmlHeight} />
+      <img src={src} alt="" width={htmlWidth} height={htmlHeight} />
     </AvatarWrapper>
   );
 };
 
 interface IProps {
+  /** Source of image to be displayed */
   src?: string;
+  /** Text to be displayed as fallback */
   text?: string;
+  /** shape of avatar. options: 'circle' | 'square' */
   shape?: IShape;
-  htmlWidth: string;
+  /** width of image element and text fallback. defaults to 100% of width. */
+  htmlWidth?: string;
+  /** height of image element and text fallback. defaults to htmlWidth property specified. */
   htmlHeight?: string;
+  /** background color for specific text fallback. */
   bgColor?: string;
+  /** text color for fallback text. defaults to a readable dark or light color depending on background. */
   textColor?: string;
-  imgAlt?: string;
+  /** classname to be passed into the top level component. */
   className?: string;
 }
 
+/**
+ * Render user avatars with text fallbacks.
+ * @component
+ */
 const Avatar: FC<IProps> = ({
   src = '',
   shape = 'circle',
@@ -156,7 +166,6 @@ const Avatar: FC<IProps> = ({
   htmlHeight,
   bgColor,
   textColor,
-  imgAlt = '',
   className = '',
 }) => {
   const hasLoaded = useHasImageLoaded({
@@ -166,7 +175,6 @@ const Avatar: FC<IProps> = ({
   return hasLoaded ? (
     <ImageAvatar
       src={src}
-      imgAlt={imgAlt}
       htmlWidth={htmlWidth}
       htmlHeight={height}
       className={className}
