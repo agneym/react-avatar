@@ -1,4 +1,7 @@
 # React Avatar
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <p>
   <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/v/@agney/react-avatar">
@@ -89,3 +92,21 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Agney Menon <agney@outlook.in>](https://github.com/agneym).<br />
 This project is [MIT](https://github.com/agneym/react-avatar/blob/master/LICENSE) licensed.
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://blog.agney.dev"><img src="https://avatars0.githubusercontent.com/u/8883368?v=4" width="100px;" alt=""/><br /><sub><b>Agney Menon</b></sub></a><br /><a href="https://github.com/agneym/react-avatar/commits?author=agneym" title="Documentation">📖</a> <a href="https://github.com/agneym/react-avatar/commits?author=agneym" title="Code">💻</a> <a href="#ideas-agneym" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
