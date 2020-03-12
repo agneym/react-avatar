@@ -162,7 +162,7 @@ interface IProps {
   /** classname to be passed into the top level component. */
   className?: string;
   /** array of background colors to pick from */
-  backgrounds: string[];
+  backgrounds?: string[];
 }
 
 /**
