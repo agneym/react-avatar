@@ -16,7 +16,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "np"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -47,6 +48,7 @@
     "@types/styled-components": "^5.0.1",
     "babel-loader": "^8.0.6",
     "husky": "^4.2.3",
+    "np": "^6.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "styled-components": "^5.0.1",
