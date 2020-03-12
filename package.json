@@ -9,6 +9,15 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "avatar",
+    "text avatar",
+    "image"
+  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
