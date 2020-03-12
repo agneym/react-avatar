@@ -57,5 +57,12 @@
   },
   "dependencies": {
     "polished": "^3.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agneym/react-avatar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agneym/react-avatar/issues"
   }
 }
