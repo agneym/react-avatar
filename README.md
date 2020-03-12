@@ -9,9 +9,6 @@
   <a href="https://github.com/agneym/react-avatar/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/agneym/react-avatar" />
   </a>
-  <a href="https://twitter.com/agneymenon" target="_blank">
-    <img alt="Twitter: agneymenon" src="https://img.shields.io/twitter/follow/agneymenon.svg?style=social" />
-  </a>
 </p>
 
 > Create Image Avatars with text based fallbacks.
@@ -71,6 +68,10 @@ npm test
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+<a href="https://twitter.com/agneymenon" target="_blank">
+  <img alt="Twitter: agneymenon" src="https://img.shields.io/twitter/follow/agneymenon.svg?style=social" />
+</a>
 
 ## 📝 License
 
