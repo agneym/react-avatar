@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { readableColor } from 'polished';
+import readableColor from 'polished/lib/color/readableColor';
 
 import useHasImageLoaded from './useHasImageLoaded';
 
