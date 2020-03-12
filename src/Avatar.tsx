@@ -64,6 +64,7 @@ const TextAvatar: FC<{
   className: string;
   shape: IShape;
   text: string;
+  backgrounds: string[];
   bgColor?: string;
   textColor?: string;
 }> = ({
@@ -74,13 +75,14 @@ const TextAvatar: FC<{
   text,
   bgColor,
   textColor,
+  backgrounds,
 }) => {
   const backgroundColor = (() => {
     if (bgColor) {
       return bgColor;
     }
-    const index = sumOfCharacters(text) % defaultBackgrounds.length;
-    return defaultBackgrounds[index];
+    const index = sumOfCharacters(text) % backgrounds.length;
+    return backgrounds[index];
   })();
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -159,6 +161,8 @@ interface IProps {
   textColor?: string;
   /** classname to be passed into the top level component. */
   className?: string;
+  /** array of background colors to pick from */
+  backgrounds: string[];
 }
 
 /**
@@ -174,6 +178,7 @@ const Avatar: FC<IProps> = ({
   htmlHeight,
   bgColor,
   textColor,
+  backgrounds = defaultBackgrounds,
   className = '',
 }) => {
   const hasLoaded = useHasImageLoaded({
@@ -198,6 +203,7 @@ const Avatar: FC<IProps> = ({
       shape={shape}
       bgColor={bgColor}
       textColor={textColor}
+      backgrounds={backgrounds}
     />
   );
 };
