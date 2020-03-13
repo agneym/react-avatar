@@ -65,6 +65,21 @@ const App = () => {
 export default App;
 ```
 
+## API
+
+|  	| Description 	| Default Value 	|
+|:-----------:	|------------------------------------------------------------------------------	|-----------------------------------------------------------------------------------	|
+| src 	| Source of image to be displayed 	|  	|
+| text 	| Text to be displayed as fallback 	|  	|
+| imageAlt 	| Alt tag for image  	| '' - decorative 	|
+| shape 	| shape of avatar. options: 'circle' or 'square' 	| circle 	|
+| htmlWidth 	| width of image element and text fallback. 	| 100% 	|
+| htmlHeight 	| height of image element and text fallback 	| same as `htmlWidth` 	|
+| backgrounds 	| Array of background colors  	| `['#3c40c6','#ffa801','#485460','#0be881','#f53b57']` 	|
+| bgColor 	| background color for specific text fallback. 	| picks random from `backgrounds`, this changes according to `text` prop passed in. 	|
+| textColor 	| text color for specific text fallback 	| readable dark or light color depending on background. 	|
+| className 	| className on the wrapper. can be used for wrapping with CSS-in-JS frameworks 	|  	|
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/agneym/react-avatar/issues).
