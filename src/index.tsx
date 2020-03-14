@@ -1,3 +1,3 @@
-import Avatar from './Avatar';
+import Avatar, { AvatarContext } from './Avatar';
 
-export { Avatar };
+export { Avatar, AvatarContext };

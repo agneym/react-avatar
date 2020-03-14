@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect, useState } from 'react';
+import React, { FC, createContext, useRef, useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import readableColor from 'polished/lib/color/readableColor';
 
@@ -166,22 +166,41 @@ interface IProps {
   backgrounds?: string[];
 }
 
+const defaultProps = {
+  src: '',
+  imageAlt: '',
+  shape: 'circle' as IShape,
+  text: '',
+  htmlWidth: '100%',
+  backgrounds: defaultBackgrounds,
+  className: '',
+}
+
+export const AvatarContext = createContext<IProps>(defaultProps);
+
 /**
  * Render user avatars with text fallbacks.
  * @component
  */
-const Avatar: FC<IProps> = ({
-  src = '',
-  imageAlt = '',
-  shape = 'circle',
-  text = '',
-  htmlWidth = '100%',
-  htmlHeight,
-  bgColor,
-  textColor,
-  backgrounds = defaultBackgrounds,
-  className = '',
-}) => {
+const Avatar: FC<IProps> = (props) => {
+  const avatarContext = useContext(AvatarContext);
+  const normalizedProps = {
+    ...defaultProps,
+    ...avatarContext,
+    ...props,
+  }
+  const {
+    src,
+    imageAlt,
+    shape,
+    text,
+    htmlWidth,
+    htmlHeight,
+    backgrounds,
+    textColor,
+    bgColor,
+    className,
+  } = normalizedProps;
   const hasLoaded = useHasImageLoaded({
     src,
   });
