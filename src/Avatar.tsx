@@ -1,4 +1,11 @@
-import React, { FC, createContext, useRef, useEffect, useState, useContext } from 'react';
+import React, {
+  FC,
+  createContext,
+  useRef,
+  useEffect,
+  useState,
+  useContext,
+} from 'react';
 import styled from 'styled-components';
 import readableColor from 'polished/lib/color/readableColor';
 
@@ -174,21 +181,21 @@ const defaultProps = {
   htmlWidth: '100%',
   backgrounds: defaultBackgrounds,
   className: '',
-}
+};
 
-export const AvatarContext = createContext<IProps>(defaultProps);
+export const AvatarContext = createContext<Partial<IProps>>(defaultProps);
 
 /**
  * Render user avatars with text fallbacks.
  * @component
  */
-const Avatar: FC<IProps> = (props) => {
+const Avatar: FC<IProps> = props => {
   const avatarContext = useContext(AvatarContext);
   const normalizedProps = {
     ...defaultProps,
     ...avatarContext,
     ...props,
-  }
+  };
   const {
     src,
     imageAlt,
