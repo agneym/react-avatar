@@ -61,6 +61,8 @@ interface IProps {
   className?: string;
   /** array of background colors to pick from */
   backgrounds?: string[];
+  /** function to process text to show inside avatar. Original text will be used for hashing so even ones with same initials inside avatar can have different backgrounds. */
+  textProcessor?: (text: string) => string;
 }
 
 const defaultProps = {
@@ -71,6 +73,7 @@ const defaultProps = {
   htmlWidth: '100%',
   backgrounds: defaultBackgrounds,
   className: '',
+  textProcessor: (text: string) => text,
 };
 
 export const AvatarContext = createContext<Partial<IProps>>(defaultProps);
@@ -92,6 +95,7 @@ const Avatar: FC<IProps> = props => {
     imageAlt,
     shape,
     text,
+    textProcessor,
     htmlWidth,
     htmlHeight,
     backgrounds,
@@ -130,6 +134,7 @@ const Avatar: FC<IProps> = props => {
       bgColor={bgColor}
       textColor={textColor}
       backgrounds={backgrounds}
+      textProcessor={textProcessor}
     />
   );
 };

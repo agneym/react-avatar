@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useEffect } from 'react';
+import React, { FC, useRef, useState, useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 
 import AvatarWrapper from './AvatarWrapper';
@@ -34,6 +34,7 @@ const TextAvatar: FC<{
   backgrounds: string[];
   bgColor?: string;
   textColor?: string;
+  textProcessor: (text: string) => string;
 }> = ({
   htmlWidth,
   htmlHeight,
@@ -43,14 +44,22 @@ const TextAvatar: FC<{
   bgColor,
   textColor,
   backgrounds,
+  textProcessor,
 }) => {
-  const backgroundColor = (() => {
+  const { backgroundColor, processedText } = useMemo(() => {
+    const processedText = textProcessor(text);
     if (bgColor) {
-      return bgColor;
+      return {
+        backgroundColor: bgColor,
+        processedText,
+      };
     }
     const index = sumOfCharacters(text) % backgrounds.length;
-    return backgrounds[index];
-  })();
+    return {
+      backgroundColor: backgrounds[index],
+      processedText,
+    };
+  }, [text, bgColor, backgrounds]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -82,7 +91,7 @@ const TextAvatar: FC<{
       ref={containerRef}
     >
       <Text ref={textRef} scale={scale}>
-        {text}
+        {processedText}
       </Text>
     </AvatarWrapper>
   );
