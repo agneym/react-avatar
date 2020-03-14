@@ -36,6 +36,7 @@ Create Image Avatars with text based fallbacks.
 1. Renders text based avatars and backgrounds based on text passed in.
 1. Autoscales text if it doesn't fit the container width.
 1. Automatically determines readable text color depending on background.
+1. Exposes a context so you can configure avatar components across your application.
 
 ## Install
 
@@ -79,6 +80,37 @@ export default App;
 | bgColor 	| background color for specific text fallback. 	| picks random from `backgrounds`, this changes according to `text` prop passed in. 	|
 | textColor 	| text color for specific text fallback 	| readable dark or light color depending on background. 	|
 | className 	| className on the wrapper. can be used for wrapping with CSS-in-JS frameworks 	|  	|
+
+### Context 
+
+Packages exposes a context in the form of `AvatarContext`. 
+
+```javascript
+import { Avatar, AvatarContext } from '../.';
+
+function App() {
+  const contextValue = React.useMemo(() => ({
+    backgrounds: ['#000000', '#DD2C00', '#6200EA', '#3F51B5'], // Any props used by Avatar can be used here.
+  }), []);
+  return (
+    <AvatarContext.Provider>
+      <div style={{ display: 'flex' }}>
+        <Avatar
+          htmlWidth='150px'
+          text="Fallback"
+          backgrounds={['red']}
+          textColor='white'
+        />
+        <Avatar
+          htmlWidth='150px'
+          text="AJ"
+        />
+      </div>
+    </AvatarContext.Provider>
+  )
+}
+```
+Values on the Context Provider are overridden by any props that are on the individual component. Context Provider is not compulsory for usage of Avatar component. Read more about [Context API on docs](https://reactjs.org/docs/context.html).
 
 ## 🤝 Contributing
 
