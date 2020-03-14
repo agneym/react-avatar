@@ -83,7 +83,7 @@ export default App;
 
 ### Context 
 
-Packages exposes a context in the form of `AvatarContext`. 
+Package exposes a context in the form of `AvatarContext`. 
 
 ```javascript
 import { Avatar, AvatarContext } from '../.';

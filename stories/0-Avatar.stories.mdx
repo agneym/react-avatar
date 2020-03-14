@@ -1,5 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import { Avatar } from '..';
+import { Avatar, AvatarContext } from '..';
 
 <Meta title="Avatar" component={Avatar} />
 
@@ -126,3 +126,31 @@ If you pass in more text than that fits in the width specified by your container
     />
   </Story>
 </Preview>
+
+### Context 
+
+Package exposes a context in the form of `AvatarContext`. 
+
+<Preview>
+  <Story name="Avatar Context">
+    <AvatarContext.Provider value={{
+      backgrounds: ['#000000', '#DD2C00', '#6200EA', '#3F51B5'],
+    }}
+    >
+      <div style={{ display: 'flex' }}>
+        <Avatar
+          htmlWidth='150px'
+          text="Fallback"
+          backgrounds={['red']}
+          textColor='white'
+        />
+        <Avatar
+          htmlWidth='150px'
+          text="AJ"
+        />
+      </div>
+    </AvatarContext.Provider>
+  </Story>
+</Preview>
+
+Values on the Context Provider are overridden by any props that are on the individual component. Context Provider is not compulsory for usage of Avatar component. Read more about [Context API on docs](https://reactjs.org/docs/context.html).
