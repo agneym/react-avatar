@@ -79,7 +79,7 @@ export default App;
 | backgrounds 	| Array of background colors  	| ['#3c40c6','#ffa801','#485460','#0be881','#f53b57'] 	|
 | bgColor 	| background color for specific text fallback. 	| picks random from `backgrounds`, this changes according to `text` prop passed in. 	|
 | textColor 	| text color for specific text fallback 	| readable dark or light color depending on background. 	|
-| textProcessor 	| function to process text to show inside avatar. Original text will be used for hashing so even ones with same initials inside avatar can have different backgrounds. 	| (text) => text 	|
+| textProcessor 	| function to process visible text inside the avatar. Original text will be used for hashing so even ones with same initials inside avatar can have different backgrounds. 	| (text) => text 	|
 | className 	| className on the wrapper. can be used for wrapping with CSS-in-JS frameworks 	|  	|
 
 See [Storybook](https://agneym.github.io/react-avatar/?path=/docs) for more examples and code snippets.
