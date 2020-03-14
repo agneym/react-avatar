@@ -1,6 +1,6 @@
 {
   "name": "@agney/react-avatar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "private": false,
   "description": "Create Image Avatars with text based fallbacks.",
