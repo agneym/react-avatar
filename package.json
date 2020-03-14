@@ -61,7 +61,7 @@
     "babel-plugin-polished": "^1.1.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.3",
-    "np": "^6.2.0",
+    "np": "*",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-is": "^16.13.0",
