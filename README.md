@@ -124,7 +124,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 We use [`yarn` v1](https://classic.yarnpkg.com/) for development. 
 
 ```sh
-yarn i
+yarn
 yarn start
 
 # To run example

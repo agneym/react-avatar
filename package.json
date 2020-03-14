@@ -76,6 +76,11 @@
   "dependencies": {
     "polished": "^3.4.4"
   },
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/agneym/react-avatar.git"
