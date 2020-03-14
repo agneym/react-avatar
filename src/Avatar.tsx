@@ -196,6 +196,7 @@ const Avatar: FC<IProps> = props => {
     ...avatarContext,
     ...props,
   };
+
   const {
     src,
     imageAlt,
@@ -208,10 +209,18 @@ const Avatar: FC<IProps> = props => {
     bgColor,
     className,
   } = normalizedProps;
+
   const hasLoaded = useHasImageLoaded({
     src,
   });
   const height = htmlHeight || htmlWidth;
+
+  if (__DEV__) {
+    if (!src && !text) {
+      console.warn('text and src are not provided.');
+    }
+  }
+
   return hasLoaded ? (
     <ImageAvatar
       src={src}
