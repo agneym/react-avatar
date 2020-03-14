@@ -1,9 +1,12 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Avatar } from '../.';
+import { Avatar, AvatarContext } from '../.';
 
 const App = () => {
+  const contextValue = React.useMemo(() => ({
+    backgrounds: ['#000000', '#DD2C00', '#6200EA', '#3F51B5'],
+  }), []);
   return (
     <div>
       <Avatar
@@ -25,6 +28,20 @@ const App = () => {
         htmlWidth='150px'
         text="Fallback"
       />
+      <AvatarContext.Provider value={contextValue}>
+        <div style={{ display: 'flex' }}>
+          <Avatar
+            htmlWidth='150px'
+            text="Fallback"
+            backgrounds={['red']}
+            textColor='white'
+          />
+          <Avatar
+            htmlWidth='150px'
+            text="AJ"
+          />
+        </div>
+      </AvatarContext.Provider>
     </div>
   );
 };
