@@ -24,24 +24,24 @@ interface IConfig {
   rating?: Rating;
 }
 
-const defaultConfig = {
-  size: 80,
-  defaultImage: 'mp',
-  forceDefault: false,
-  rating: Rating.g,
-};
-
 /**
  * Generate gravatar URLs
  * @param email Email address
  */
 function useGravatar(
   email: string,
-  { size, defaultImage }: IConfig = defaultConfig
+  { size, defaultImage, forceDefault, rating }: IConfig = {}
 ): string {
   const url = useMemo(() => {
     const hash = md5(email);
-    return `//www.gravatar.com/avatar/${hash}`;
+
+    const params = new URLSearchParams();
+    size && params.set('s', String(size));
+    defaultImage && params.set('d', encodeURI(defaultImage));
+    forceDefault && params.set('f', 'y');
+    rating && params.set('r', rating);
+
+    return `//www.gravatar.com/avatar/${hash}?${params.toString()}`;
   }, [email]);
 
   return url;
