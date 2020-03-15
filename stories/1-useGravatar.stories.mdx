@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { useGravatar } from '..';
+
+<Meta title="useGravatar" component={useGravatar} />
+
+# useGravatar Hook
+
+Installation:
+
+```sh
+npm i @agney/react-avatar
+```
+
+## Usage
+
+```javascript
+import React from "react";
+import { Avatar, useGravatar } from "@agney/react-avatar";
+
+const App = () => {
+  const url = useGravatar('person@example.com')
+  return (
+    <Avatar
+      src={url}
+      text="CM"
+    />
+  );
+}
+
+export default App;
+```
+
+

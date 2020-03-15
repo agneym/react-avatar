@@ -36,6 +36,7 @@ Create Image Avatars with text based fallbacks.
 1. Renders text based avatars and backgrounds based on text passed in.
 1. Autoscales text if it doesn't fit the container width.
 1. Automatically determines readable text color depending on background.
+1. Exposes a hook to use/generate gravatar for a user.
 1. Exposes a context so you can configure avatar components across your application.
 
 ## Install
