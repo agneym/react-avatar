@@ -33,7 +33,9 @@ function useGravatar(
   { size, defaultImage, forceDefault, rating }: IConfig = {}
 ): string {
   const url = useMemo(() => {
-    const hash = md5(email);
+    const processedEmail = email.trim().toLowerCase();
+
+    const hash = md5(processedEmail);
 
     const params = new URLSearchParams();
     size && params.set('s', String(size));
