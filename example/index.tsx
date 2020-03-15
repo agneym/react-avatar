@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Avatar, AvatarContext } from '../.';
+import { Avatar, AvatarContext, useGravatar } from '../.';
 
 const App = () => {
   const contextValue = React.useMemo(() => ({
@@ -11,6 +11,7 @@ const App = () => {
       return textSnippets.map((snippet) => snippet.charAt(0)).join('');
     }
   }), []);
+  const url = useGravatar('agney@outlook.in');
   return (
     <div>
       <Avatar
@@ -19,6 +20,11 @@ const App = () => {
       />
       <Avatar
         text='Lucy King'
+        htmlWidth='150px'
+      />
+      <Avatar
+        src={url}
+        text='Agney Menon'
         htmlWidth='150px'
       />
       <Avatar
