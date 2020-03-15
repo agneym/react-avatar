@@ -154,3 +154,31 @@ Package exposes a context in the form of `AvatarContext`.
 </Preview>
 
 Values on the Context Provider are overridden by any props that are on the individual component. Context Provider is not compulsory for usage of Avatar component. Read more about [Context API on docs](https://reactjs.org/docs/context.html).
+
+## Text Processor Function
+
+With the prop `textProcessor` it is possible to define how the text needs to be transformed before being shown in the Avatar itself. This is useful because the longer text is used for hashing and hence even people with same initials can end up with different colored consistent backgrounds.
+
+Here is an example of using the `textProcessor` function to select an emoji from the text passed in consistently:
+
+<Preview>
+  <Story name="Text Processor Function">
+    <AvatarContext.Provider value={{
+      textProcessor: (text) => ['😄','😃','😀','😊','😉','😍','😘','😚','😗','😙','😜','😝','😛','😳','😁','😔','😌','😒','😞','😣','😢','😂'][text.split('').reduce((s,t)=>s+t.charCodeAt(0), 0) % 21],
+      htmlWidth: '100px',
+    }}
+    >
+      <div style={{ display: 'flex', fontSize: '2em' }}>
+        <Avatar
+          text="Ersa Scarlett"
+        />
+        <Avatar
+          text="Natsu Dragneel"
+        />
+        <Avatar
+          text="Kaori Miyazono"
+        />
+      </div>
+    </AvatarContext.Provider>
+  </Story>
+</Preview>
