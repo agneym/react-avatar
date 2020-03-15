@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import md5 from 'md5';
 
-enum Rating {
+export enum Rating {
   g = 'g',
   pg = 'pg',
   r = 'r',
