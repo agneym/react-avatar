@@ -10,6 +10,14 @@ describe('useGravatar', () => {
     expect(new URL(url).host).toContain('gravatar');
   });
 
+  it('contains hash', () => {
+    const { result } = renderHook<string, string>(() =>
+      useGravatar('pErson@email.com')
+    );
+    const url = result.current;
+    expect(url).toContain('78c8a3f73229a443be28f56546500b97');
+  });
+
   it('has url parameters', () => {
     const config = {
       size: 10,

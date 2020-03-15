@@ -10,7 +10,7 @@ jest.mock('../src/useHasImageLoaded');
 
 describe('Avatar', () => {
   it('renders without crashing', () => {
-    render(<Avatar />);
+    render(<Avatar text="a" />);
   });
 
   it('should show text', () => {
