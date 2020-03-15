@@ -116,6 +116,43 @@ function App() {
 ```
 Values on the Context Provider are overridden by any props that are on the individual component. Context Provider is not compulsory for usage of Avatar component. Read more about [Context API on docs](https://reactjs.org/docs/context.html).
 
+
+### `useGravatar` hook
+
+Gravatars or Globally Recognized Avatars is a free service that allows you to share profile pictures/avatars across different sites and services. `react-avatar` exposes a hook that makes it easier for you to request and use these gravatars in your application.
+
+#### Usage:
+
+```javascript
+import React from "react";
+import { Avatar, useGravatar } from "@agney/react-avatar";
+
+const App = () => {
+  const url = useGravatar('person@email.com');
+  return (
+    <Avatar
+      src={url}
+      text="CM"
+    />
+  );
+}
+
+export default App;
+```
+
+#### API
+
+| Argument 	| Description 	| Default 	|
+|---------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|---------	|
+| email 	| Email of the person for which gravatar is to be fetched 	|  	|
+| config 	| configuration object. following fields are part of this object 	|  	|
+| config.size 	| number representing height & width of image. 1px up to 2048px 	| 80 	|
+| config.defaultImage 	| If the image is not available, gravatar defaults to this property. You can provide a custom URL image to default to or one of the alternatives that Gravatar supports. 	|  	|
+| config.forceDefault 	| Always returns the default image if true 	| false 	|
+| config.rating 	| Gravatar allows users to self rate their images. If required pass in a higher rating.  	| g 	|
+
+For a complete list of available options, view [Gravatar docs](https://en.gravatar.com/site/implement/images/)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/agneym/react-avatar/issues).

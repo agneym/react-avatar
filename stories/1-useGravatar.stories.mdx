@@ -30,4 +30,15 @@ const App = () => {
 export default App;
 ```
 
+## API
 
+| Argument 	| Description 	| Default 	|
+|---------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|---------	|
+| email 	| Email of the person for which gravatar is to be fetched 	|  	|
+| config 	| configuration object. following fields are part of this object 	|  	|
+| config.size 	| number representing height & width of image. 1px up to 2048px 	| 80 	|
+| config.defaultImage 	| If the image is not available, gravatar defaults to this property. You can provide a custom URL image to default to or one of the alternatives that Gravatar supports. 	|  	|
+| config.forceDefault 	| Always returns the default image if true 	| false 	|
+| config.rating 	| Gravatar allows users to self rate their images. If required pass in a higher rating.  	| g 	|
+
+For a complete list of available options, view [Gravatar docs](https://en.gravatar.com/site/implement/images/)
