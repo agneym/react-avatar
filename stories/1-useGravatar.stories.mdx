@@ -1,5 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import { useGravatar } from '..';
+import { Avatar, useGravatar } from '..';
 
 <Meta title="useGravatar" component={useGravatar} />
 
@@ -42,3 +42,74 @@ export default App;
 | config.rating 	| Gravatar allows users to self rate their images. If required pass in a higher rating.  	| g 	|
 
 For a complete list of available options, view [Gravatar docs](https://en.gravatar.com/site/implement/images/)
+
+### Normal Image
+
+Pass in an email to receive the URL for gravatar.
+
+<Preview>
+  <Story name="Image URL">
+    {() => {
+      const url = useGravatar('agney@outlook.in');
+      return (
+        <Avatar
+          src={url}
+          htmlWidth="100px"
+        />
+      )
+    }}
+  </Story>
+</Preview>
+
+### Larger size
+
+Pass in a `size` to config.
+
+<Preview>
+  <Story name="Config Options">
+    {() => {
+      const url = useGravatar('abcd', {
+        size: 200
+      });
+      return (
+        <Avatar
+          src={url}
+          htmlWidth='200px'
+        />
+      )
+    }}
+  </Story>
+</Preview>
+
+### Generate an image
+
+<Preview>
+  <Story name="Generate Image">
+    {() => {
+      const url = useGravatar('abcd', {
+        size: 200,
+        forceDefault: true,
+        defaultImage: 'robohash'
+      });
+      const url2 = useGravatar('abcd', {
+        size: 200,
+        forceDefault: true,
+        defaultImage: 'monsterid'
+      })
+      return (
+        <div style={{ display: 'flex' }}>
+          <Avatar
+            src={url}
+            htmlWidth='100px'
+            text="AB"
+          />
+          <Avatar
+            src={url2}
+            htmlWidth='100px'
+            text="CD"
+          />
+        </div>
+      )
+    }}
+  </Story>
+</Preview>
