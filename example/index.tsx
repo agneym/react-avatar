@@ -76,6 +76,10 @@ const App = () => {
           htmlWidth='150px'
           text="Erza Scarlett"
         />
+        <Avatar
+          htmlWidth='150px'
+          text="Erza Scarlett"
+        />
       </AvatarGroup>
     </div>
   );

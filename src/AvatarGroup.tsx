@@ -1,7 +1,7 @@
-import React, { FC, Children, isValidElement, cloneElement } from 'react';
+import React, { FC, Children, isValidElement } from 'react';
 import styled from 'styled-components';
 
-function cleanChildren(children: Element[]) {
+function cleanChildren(children: JSX.Element[]) {
   return Children.toArray(children).filter(child => isValidElement(child));
 }
 
@@ -11,7 +11,7 @@ const Flex = styled.div`
   position: relative;
 `;
 
-const AvatarWrapper = styled.div<{ marginLeft: number, zIndex: number }>`
+const AvatarWrapper = styled.div<{ marginLeft: number; zIndex: number }>`
   margin-left: ${props => props.marginLeft}px;
   z-index: ${props => props.zIndex};
 `;
@@ -22,7 +22,7 @@ interface IProps {
   /** Spacing between each avatar */
   spacing?: number;
   /** children Avatar components */
-  children: Element[];
+  children: JSX.Element[];
 }
 
 const AvatarGroup: FC<IProps> = ({ max = 3, spacing = -30, children }) => {
@@ -31,19 +31,19 @@ const AvatarGroup: FC<IProps> = ({ max = 3, spacing = -30, children }) => {
   return (
     <Flex>
       {validChildren.map((child, index) => {
-    if(index > max) {
-      return null;
-    }
-    if(index === max) {
-      return <p>+ More</p>
-    }
-    const first = index === 0;
-    return (
-      <AvatarWrapper marginLeft={first ? 0 : spacing} zIndex={index}>
-        {child}
-      </AvatarWrapper>
-    );
-  })}
+        if (index > max) {
+          return null;
+        }
+        if (index === max) {
+          return <p>+ More</p>;
+        }
+        const first = index === 0;
+        return (
+          <AvatarWrapper marginLeft={first ? 0 : spacing} zIndex={index}>
+            {child}
+          </AvatarWrapper>
+        );
+      })}
     </Flex>
   );
 };
