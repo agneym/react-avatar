@@ -1,4 +1,10 @@
-import React, { FC, Children, isValidElement, useMemo } from 'react';
+import React, {
+  FC,
+  Children,
+  isValidElement,
+  useMemo,
+  useContext,
+} from 'react';
 import Avatar, { AvatarContext, AvatarProps } from './Avatar';
 import styled from 'styled-components';
 
@@ -12,7 +18,11 @@ const Flex = styled.div`
   position: relative;
 `;
 
-const AvatarWrapper = styled.div<{ marginLeft: number; zIndex: number, max: number }>`
+const AvatarWrapper = styled.div<{
+  marginLeft: number;
+  zIndex: number;
+  max: number;
+}>`
   margin-left: ${props => props.marginLeft}px;
   z-index: ${props => props.zIndex};
 
@@ -30,38 +40,51 @@ interface AvatarGroupProps extends Partial<AvatarProps> {
   children: JSX.Element[];
 }
 
-const AvatarGroup: FC<AvatarGroupProps> = ({ max = 3, spacing = -30, children, ...rest }) => {
+const AvatarGroup: FC<AvatarGroupProps> = ({
+  max = 3,
+  spacing = -30,
+  children,
+  ...rest
+}) => {
   const validChildren = cleanChildren(children);
   const totalCount = validChildren.length;
 
-  const value = useMemo(() => ({
-    ...rest,
-  }), []);
+  const avatarContext = useContext(AvatarContext);
+
+  const value = useMemo(
+    () => ({
+      ...avatarContext,
+      ...rest,
+    }),
+    []
+  );
 
   return (
     <AvatarContext.Provider value={value}>
       <Flex>
-      {validChildren.map((child, index) => {
-        if (index > max) {
-          return null;
-        }
-        if (index === max) {
+        {validChildren.map((child, index) => {
+          if (index > max) {
+            return null;
+          }
+          if (index === max) {
+            return (
+              <AvatarWrapper marginLeft={spacing} zIndex={index} max={max}>
+                <Avatar text={`+${totalCount - max}`} />
+              </AvatarWrapper>
+            );
+          }
+          const first = index === 0;
           return (
-            <AvatarWrapper marginLeft={spacing} zIndex={index} max={max}>
-              <Avatar
-                text={`+${totalCount - max}`}
-              />
+            <AvatarWrapper
+              marginLeft={first ? 0 : spacing}
+              zIndex={index}
+              max={max}
+            >
+              {child}
             </AvatarWrapper>
           );
-        }
-        const first = index === 0;
-        return (
-          <AvatarWrapper marginLeft={first ? 0 : spacing} zIndex={index} max={max}>
-            {child}
-          </AvatarWrapper>
-        );
-      })}
-    </Flex>
+        })}
+      </Flex>
     </AvatarContext.Provider>
   );
 };
