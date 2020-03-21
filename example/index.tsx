@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Avatar, AvatarContext, useGravatar } from '../.';
+import { Avatar, AvatarContext, useGravatar, AvatarGroup } from '../.';
 
 const App = () => {
   const contextValue = React.useMemo(() => ({
@@ -61,6 +61,22 @@ const App = () => {
           />
         </div>
       </AvatarContext.Provider>
+      <AvatarGroup>
+        <Avatar
+          htmlWidth='150px'
+          text="Happy"
+          backgrounds={['red']}
+          textColor='white'
+        />
+        <Avatar
+          htmlWidth='150px'
+          text="Natsu Dragneel"
+        />
+        <Avatar
+          htmlWidth='150px'
+          text="Erza Scarlett"
+        />
+      </AvatarGroup>
     </div>
   );
 };
