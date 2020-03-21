@@ -12,6 +12,7 @@ const App = () => {
     }
   }), []);
   const url = useGravatar('agney@outlook.in');
+  const url2 = useGravatar('test@example.com');
   return (
     <div>
       <Avatar
@@ -61,23 +62,20 @@ const App = () => {
           />
         </div>
       </AvatarContext.Provider>
-      <AvatarGroup>
+      <AvatarGroup htmlWidth='100px' spacing={-50}>
         <Avatar
-          htmlWidth='150px'
           text="Happy"
           backgrounds={['red']}
           textColor='white'
         />
         <Avatar
-          htmlWidth='150px'
-          text="Natsu Dragneel"
+          src={url2}
+          text="Fallback"
         />
         <Avatar
-          htmlWidth='150px'
           text="Erza Scarlett"
         />
         <Avatar
-          htmlWidth='150px'
           text="Erza Scarlett"
         />
       </AvatarGroup>

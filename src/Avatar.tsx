@@ -40,7 +40,7 @@ const ImageAvatar: FC<{
   );
 };
 
-interface IProps {
+export interface AvatarProps {
   /** Source of image to be displayed */
   src?: string;
   /** Text to be displayed as fallback */
@@ -76,13 +76,13 @@ const defaultProps = {
   textProcessor: (text: string) => text,
 };
 
-export const AvatarContext = createContext<Partial<IProps>>(defaultProps);
+export const AvatarContext = createContext<Partial<AvatarProps>>(defaultProps);
 
 /**
  * Render user avatars with text fallbacks.
  * @component
  */
-const Avatar: FC<IProps> = props => {
+const Avatar: FC<AvatarProps> = props => {
   const avatarContext = useContext(AvatarContext);
   const normalizedProps = {
     ...defaultProps,
