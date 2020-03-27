@@ -4,7 +4,7 @@
   <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/v/@agney/react-avatar">
   </a>
-  <a href="https://github.com/agneym/playground/actions">
+  <a href="https://github.com/agneym/react-avatar/actions">
     <img src="https://github.com/agneym/react-avatar/workflows/Node%20CI/badge.svg" />
   </a>
   <a href="https://github.com/agneym/react-avatar/blob/master/LICENSE" target="_blank">
