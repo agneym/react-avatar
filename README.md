@@ -10,9 +10,6 @@
   <a href="https://github.com/agneym/react-avatar/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/agneym/react-avatar" />
   </a>
-  <a href="https://www.npmjs.com/package/@agney/react-avatar" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/npm/types/scrub-js.svg" />
-  </a>
   <a href="https://prettier.io">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" />
   </a>
