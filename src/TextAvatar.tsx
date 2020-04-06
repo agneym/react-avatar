@@ -34,6 +34,7 @@ const TextAvatar: FC<{
   backgrounds: string[];
   bgColor?: string;
   textColor?: string;
+  imageAlt: string;
   textProcessor: (text: string) => string;
 }> = ({
   htmlWidth,
@@ -45,6 +46,7 @@ const TextAvatar: FC<{
   textColor,
   backgrounds,
   textProcessor,
+  imageAlt,
 }) => {
   const { backgroundColor, processedText } = useMemo(() => {
     const processedText = textProcessor(text);
@@ -89,6 +91,8 @@ const TextAvatar: FC<{
       bgColor={backgroundColor}
       textColor={textColor}
       ref={containerRef}
+      role='img'
+      aria-label={imageAlt}
     >
       <Text ref={textRef} scale={scale}>
         {processedText}

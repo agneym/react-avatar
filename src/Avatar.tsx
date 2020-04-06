@@ -128,6 +128,7 @@ const Avatar: FC<AvatarProps> = props => {
     <TextAvatar
       text={text}
       htmlWidth={htmlWidth}
+      imageAlt={imageAlt}
       htmlHeight={height}
       className={className}
       shape={shape}
