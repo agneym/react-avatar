@@ -56,7 +56,7 @@ const AvatarGroup: FC<AvatarGroupProps> = ({
       ...avatarContext,
       ...rest,
     }),
-    []
+    [avatarContext, rest]
   );
 
   return (

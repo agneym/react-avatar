@@ -91,7 +91,7 @@ const TextAvatar: FC<{
       bgColor={backgroundColor}
       textColor={textColor}
       ref={containerRef}
-      role='img'
+      role="img"
       aria-label={imageAlt}
     >
       <Text ref={textRef} scale={scale}>

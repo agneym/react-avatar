@@ -44,7 +44,7 @@ function useGravatar(
     rating && params.set('r', rating);
 
     return `//www.gravatar.com/avatar/${hash}?${params.toString()}`;
-  }, [email]);
+  }, [email, defaultImage, forceDefault, rating, size]);
 
   return url;
 }
